@@ -1,0 +1,1 @@
+<h3>New event was successfully added</h3>
