@@ -8,7 +8,7 @@
 		echo "</div>";
 		echo form_open('user_authentication/signup');
 
-		echo form_label('Create Username : ');
+		echo form_label('Ime: ');
 		echo"<br/>";
 		echo form_input('username');
 		echo "<div class='error_msg'>";
@@ -18,16 +18,16 @@
 		}
 		echo "</div>";
 		echo"<br/>";
-		echo form_label('Email : ');
+		echo form_label('Priimek: ');
 		echo"<br/>";
 		$data = array(
-		'type' => 'email',
+		'type' => 'text',
 		'name' => 'email_value'
 		);
 		echo form_input($data);
 		echo"<br/>";
 		echo"<br/>";
-		echo form_label('Password : ');
+		echo form_label('Geslo: ');
 		echo"<br/>";
 		echo form_password('password');
 		echo"<br/>";

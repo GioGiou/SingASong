@@ -38,9 +38,9 @@ class User_authentication extends CI_Controller {
 			$this->load->view('user_authentication/registration_form');
 		} else {
 			$data = array(
-				'name' => $this->input->post('username'),
-				'email' => $this->input->post('email_value'),
-				'password' => $this->input->post('password')
+				'Ime' => $this->input->post('username'),
+				'Priimek' => $this->input->post('email_value'),
+				'Geslo' => $this->input->post('password')
 			);
 			$result = $this->login_database->registration_insert($data);
 			if ($result == TRUE) {
@@ -61,15 +61,17 @@ class User_authentication extends CI_Controller {
 			if(isset($this->session->userdata['logged_in'])){
 				$data['username'] = $this->session->userdata['logged_in']['username'];
 				$data['email'] = $this->session->userdata['logged_in']['email'];
-				if($this->session->userdata['logged_in']['urednik']){
+				if($this->session->userdata['logged_in']['urednik'] == 5){
 					$data['admin'] = 'Urednik';
 					$this->load->view('templates/header_urednik');
+					$this->load->view('user_authentication/admin_page_urednik', $data);
 				}
 				else{
 					$data['admin'] = 'User';
 					$this->load->view('templates/header');
+					$this->load->view('user_authentication/admin_page', $data);
 				}
-				$this->load->view('user_authentication/admin_page', $data);
+
 				$this->load->view('templates/footer');
 			}else{
 				$data['message_display'] = 'Signin to view user page!';
@@ -96,9 +98,9 @@ class User_authentication extends CI_Controller {
 			$result = $this->login_database->read_user_information($username);
 			if ($result != false) {
 				$session_data = array(
-					'username' => $result[0]->name,
-					'email' => $result[0]->email,
-					'urednik' => $result[0]->urednik,
+					'username' => $result[0]->Ime,
+					'email' => $result[0]->Priimek,
+					'urednik' => $result[0]->Id,
 				);
 				// Add user data in session
 				$data = array('error_message' => 'Signin OK');
