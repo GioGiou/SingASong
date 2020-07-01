@@ -86,14 +86,114 @@ class Event extends CI_Controller {
 
 
     public function index(){
-		
+		if(isset($this->session->userdata['logged_in'])){
 		$data['news'] = $this->event_model->get_event();
 		$data['title'] = "All events";
 
 		$this->load->view('templates/header', $data);
         $this->load->view('event/index', $data);
         $this->load->view('templates/footer', $data);
+		}
+		else{
+			$this->load->helper('form');
 
+			// Load form validation library
+			$this->load->library('form_validation');
+
+			$data['message_display'] = 'Signin to view a event!';
+			$this->load->view('templates/header');
+			$this->load->view('user_authentication/login_form', $data);
+			$this->load->view('templates/footer');
+
+		}
 	}
 	
+	public function date(){
+		if(isset($this->session->userdata['logged_in'])){
+		$data['news'] = $this->event_model->get_event_date();
+		$data['title'] = "All events";
+
+		$this->load->view('templates/header', $data);
+        $this->load->view('event/index', $data);
+        $this->load->view('templates/footer', $data);
+		}
+		else{
+			$this->load->helper('form');
+
+			// Load form validation library
+			$this->load->library('form_validation');
+
+			$data['message_display'] = 'Signin to view a event!';
+			$this->load->view('templates/header');
+			$this->load->view('user_authentication/login_form', $data);
+			$this->load->view('templates/footer');
+
+		}
+	}
+	public function alf(){
+		if(isset($this->session->userdata['logged_in'])){
+		$data['news'] = $this->event_model->get_event_alf();
+		$data['title'] = "All events";
+
+		$this->load->view('templates/header', $data);
+        $this->load->view('event/index', $data);
+        $this->load->view('templates/footer', $data);
+		}
+		else{
+			$this->load->helper('form');
+
+			// Load form validation library
+			$this->load->library('form_validation');
+
+			$data['message_display'] = 'Signin to view a event!';
+			$this->load->view('templates/header');
+			$this->load->view('user_authentication/login_form', $data);
+			$this->load->view('templates/footer');
+
+		}
+	}
+	public function all(){
+		if(isset($this->session->userdata['logged_in'])){
+		$data['news'] = $this->event_model->get_event_all();
+		$data['title'] = "All events";
+
+		$this->load->view('templates/header', $data);
+        $this->load->view('event/index2', $data);
+        $this->load->view('templates/footer', $data);
+		}
+		else{
+			$this->load->helper('form');
+
+			// Load form validation library
+			$this->load->library('form_validation');
+
+			$data['message_display'] = 'Signin to view a event!';
+			$this->load->view('templates/header');
+			$this->load->view('user_authentication/login_form', $data);
+			$this->load->view('templates/footer');
+
+		}
+	}
+	public function old(){
+		if(isset($this->session->userdata['logged_in'])){
+		$data['news'] = $this->event_model->get_event_old();
+		$data['title'] = "All events";
+
+		$this->load->view('templates/header', $data);
+        $this->load->view('event/index2', $data);
+        $this->load->view('templates/footer', $data);
+		}
+		else{
+			$this->load->helper('form');
+
+			// Load form validation library
+			$this->load->library('form_validation');
+
+			$data['message_display'] = 'Signin to view a event!';
+			$this->load->view('templates/header');
+			$this->load->view('user_authentication/login_form', $data);
+			$this->load->view('templates/footer');
+
+		}
+	}
 }

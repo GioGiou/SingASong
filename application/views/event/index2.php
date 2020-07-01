@@ -1,9 +1,3 @@
-<div>
-<p>Razporedi po:</p>
-<a href="<?php echo site_url('event/');?>"><button type="button">Datumu objave</button></a>
-<a href="<?php echo site_url('event/date');?>"><button type="button">Datumu</button></a> 
-<a href="<?php echo site_url('event/alf');?>"><button type="button">A...Ž</button></a>   
-</div>
 <?php foreach ($news as $news_item): ?>
         <div>
         <h3><?php echo $news_item['Naslov']; ?></h3>

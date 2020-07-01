@@ -6,6 +6,28 @@ class Event_model extends CI_Model{
 	}
 
 	public function get_event(){
+		$this->db->where('Datum >=', date("Y-m-d"));
+		$query = $this->db->get('Dogodek');
+		return $query->result_array();
+	}
+	public function get_event_date(){
+		$this->db->where('Datum >=', date("Y-m-d"));
+		$this->db->order_by('Datum', 'DESC');
+		$query = $this->db->get('Dogodek');
+		return $query->result_array();
+	}
+	public function get_event_alf(){
+		$this->db->where('Datum >=', date("Y-m-d"));
+		$this->db->order_by('Naslov', 'ASC');
+		$query = $this->db->get('Dogodek');
+		return $query->result_array();
+	}
+	public function get_event_old(){
+		$this->db->where('Datum <', date("Y-m-d"));
+		$query = $this->db->get('Dogodek');
+		return $query->result_array();
+	}
+	public function get_event_all(){
 		$query = $this->db->get('Dogodek');
 		return $query->result_array();
 	}

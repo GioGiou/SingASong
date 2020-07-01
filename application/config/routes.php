@@ -64,10 +64,11 @@ $route['user_authentication/logout'] = 'user_authentication/logout';
 
 $route['event/create'] = 'event/create';
 $route['event/create'] = 'event/create';
-$route['event/json'] = 'event/json';
+$route['event/alf'] = 'event/alf';
+$route['event/date'] = 'event/date';
+$route['event/old'] = 'event/old';
+$route['event/all'] = 'event/all';
 $route['event'] = 'event/index';
-$route['add_com'] = 'event/add_com/$1';
-
 $route['event/(:any)'] = 'event/view/$1';
-$route['(:any)'] = 'event/index';
+$route['(:any)'] = 'welcome/index';
 $route['default_controller'] = 'welcome/index';

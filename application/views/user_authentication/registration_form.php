@@ -35,6 +35,6 @@
 		echo form_submit('submit', 'Sign Up');
 		echo form_close();
 		?>
-		<a href="<?php echo base_url() ?> ">For Login Click Here</a>
+		<a href="<?php echo site_url('user_authentication/signin') ?> ">For Login Click Here</a>
 	</div>
 </div>

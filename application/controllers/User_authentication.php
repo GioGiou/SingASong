@@ -35,7 +35,9 @@ class User_authentication extends CI_Controller {
 		$this->form_validation->set_rules('password', 'Password', 'trim|required');
 
 		if ($this->form_validation->run() == FALSE) {
-			$this->load->view('user_authentication/registration_form');
+			$this->load->view('templates/header');
+				$this->load->view('user_authentication/registration_form');
+				$this->load->view('templates/footer');
 		} else {
 			$data = array(
 				'Ime' => $this->input->post('username'),
