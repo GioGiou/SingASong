@@ -19,9 +19,6 @@ class Event extends CI_Controller {
 				$this->form_validation->set_rules('text', 'Text', 'required');
 				$this->form_validation->set_rules('kraj', 'Kraj', 'required');
 				$this->form_validation->set_rules('datum', 'Datum', 'required');
-
-				$data['title'] = "Add new event";
-
 				if($this->form_validation->run() === FALSE){
 					$this->load->view('templates/header_urednik');
 					$this->load->view('event/create');
@@ -40,7 +37,7 @@ class Event extends CI_Controller {
 				// Load form validation library
 				$this->load->library('form_validation');
 	
-				$data['message_display'] = 'You are not an admin!';
+				$data['message_display'] = 'Nisi Urednik';
 				$this->load->view('templates/header');
 				$this->load->view('user_authentication/login_form', $data);
 				$this->load->view('templates/footer');
@@ -53,7 +50,7 @@ class Event extends CI_Controller {
 			// Load form validation library
 			$this->load->library('form_validation');
 
-			$data['message_display'] = 'Signin to create a Event!';
+			$data['message_display'] = 'Prijavi se da lahko dodaš dogodek, če si urednik';
 			$this->load->view('templates/header');
 			$this->load->view('user_authentication/login_form', $data);
 			$this->load->view('templates/footer');
@@ -65,7 +62,7 @@ class Event extends CI_Controller {
 
 		if(isset($this->session->userdata['logged_in'])){
 			$data['news_item'] = $this->event_model->get_event_where($slug);
-			$data['title'] = "Event Item";
+			$data['title'] = $data['news_item']['Naslov'];
 			$this->load->view('templates/header', $data);
         	$this->load->view('event/view', $data);
         	$this->load->view('templates/footer', $data);
@@ -76,7 +73,7 @@ class Event extends CI_Controller {
 			// Load form validation library
 			$this->load->library('form_validation');
 
-			$data['message_display'] = 'Signin to view a event!';
+			$data['message_display'] = 'Prijavise če želiš videti dogodke.';
 			$this->load->view('templates/header');
 			$this->load->view('user_authentication/login_form', $data);
 			$this->load->view('templates/footer');
@@ -88,7 +85,7 @@ class Event extends CI_Controller {
     public function index(){
 		if(isset($this->session->userdata['logged_in'])){
 		$data['news'] = $this->event_model->get_event();
-		$data['title'] = "All events";
+		$data['title'] = "Prihajajoči dogodki";
 
 		$this->load->view('templates/header', $data);
         $this->load->view('event/index', $data);
@@ -111,7 +108,7 @@ class Event extends CI_Controller {
 	public function date(){
 		if(isset($this->session->userdata['logged_in'])){
 		$data['news'] = $this->event_model->get_event_date();
-		$data['title'] = "All events";
+		$data['title'] = "Prihajajoči dogodki";
 
 		$this->load->view('templates/header', $data);
         $this->load->view('event/index', $data);
@@ -133,7 +130,7 @@ class Event extends CI_Controller {
 	public function alf(){
 		if(isset($this->session->userdata['logged_in'])){
 		$data['news'] = $this->event_model->get_event_alf();
-		$data['title'] = "All events";
+		$data['title'] = "Prihajajoči dogodki";
 
 		$this->load->view('templates/header', $data);
         $this->load->view('event/index', $data);
@@ -155,7 +152,7 @@ class Event extends CI_Controller {
 	public function all(){
 		if(isset($this->session->userdata['logged_in'])){
 		$data['news'] = $this->event_model->get_event_all();
-		$data['title'] = "All events";
+		$data['title'] = "Vsi dogodki";
 
 		$this->load->view('templates/header', $data);
         $this->load->view('event/index2', $data);
@@ -177,7 +174,7 @@ class Event extends CI_Controller {
 	public function old(){
 		if(isset($this->session->userdata['logged_in'])){
 		$data['news'] = $this->event_model->get_event_old();
-		$data['title'] = "All events";
+		$data['title'] = "Pretekli dogodki";
 
 		$this->load->view('templates/header', $data);
         $this->load->view('event/index2', $data);

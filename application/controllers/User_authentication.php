@@ -46,7 +46,7 @@ class User_authentication extends CI_Controller {
 			);
 			$result = $this->login_database->registration_insert($data);
 			if ($result == TRUE) {
-				$data['message_display'] = 'Registration Successfully !';
+				$data['message_display'] = 'Uspečno ste se registrirali. Če želite nadaljevati se morate prijaviti.';
 				$this->load->view('templates/header');
 				$this->load->view('user_authentication/login_form', $data);
 				$this->load->view('templates/footer');
@@ -64,19 +64,19 @@ class User_authentication extends CI_Controller {
 				$data['username'] = $this->session->userdata['logged_in']['username'];
 				$data['email'] = $this->session->userdata['logged_in']['email'];
 				if($this->session->userdata['logged_in']['urednik'] == 5){
-					$data['admin'] = 'Urednik';
+					$data['admin'] = 'urednik';
 					$this->load->view('templates/header_urednik');
 					$this->load->view('user_authentication/admin_page_urednik', $data);
 				}
 				else{
-					$data['admin'] = 'User';
+					$data['admin'] = 'uporabnik';
 					$this->load->view('templates/header');
 					$this->load->view('user_authentication/admin_page', $data);
 				}
 
 				$this->load->view('templates/footer');
 			}else{
-				$data['message_display'] = 'Signin to view user page!';
+				$data['message_display'] = 'Potrebna je prijava.';
 				$this->load->view('templates/header');
 				$this->load->view('user_authentication/login_form', $data);
 				$this->load->view('templates/footer');
@@ -105,7 +105,7 @@ class User_authentication extends CI_Controller {
 					'urednik' => $result[0]->Id,
 				);
 				// Add user data in session
-				$data = array('error_message' => 'Signin OK');
+				$data = array('error_message' => 'Vspešna prijava');
 				$this->session->set_userdata('logged_in', $session_data);
 				$this->load->view('templates/header',$data);
 				$this->load->view('user_authentication/login_form',$data);
@@ -113,7 +113,7 @@ class User_authentication extends CI_Controller {
 			}
 		} else {
 			$data = array(
-				'error_message' => 'Invalid Username or Password'
+				'error_message' => 'Neveljavno ime ali geslo'
 			);
 			$this->load->view('templates/header');
 			$this->load->view('user_authentication/login_form', $data);
@@ -129,7 +129,7 @@ class User_authentication extends CI_Controller {
 			'username' => ''
 		);
 		$this->session->unset_userdata('logged_in', $sess_array);
-		$data['message_display'] = 'Successfully Logout';
+		$data['message_display'] = 'Uspešna odjava';
 		$this->load->view('templates/header');
 		$this->load->view('user_authentication/login_form', $data);
 		$this->load->view('templates/footer');

@@ -1,1 +1,1 @@
-<p>User was successfully deleted</p>
+<p>Uspešno ste  izbrisali uporabnika.</p>

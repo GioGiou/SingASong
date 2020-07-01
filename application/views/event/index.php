@@ -1,7 +1,7 @@
 <div>
-<p>Razporedi po:</p>
+Razporedi po:<br/>
 <a href="<?php echo site_url('event/');?>"><button type="button">Datumu objave</button></a>
-<a href="<?php echo site_url('event/date');?>"><button type="button">Datumu</button></a> 
+<a href="<?php echo site_url('event/date');?>"><button type="button">Datumu dogodka</button></a> 
 <a href="<?php echo site_url('event/alf');?>"><button type="button">A...Ž</button></a>   
 </div>
 <?php foreach ($news as $news_item): ?>
@@ -13,7 +13,7 @@
 
 <?php endforeach; ?>
 <div>
-<p>Več:</p>
+Več:<br/>
 <a href="<?php echo site_url('event/all'); ?>"><button type="button">Vsi dogodki</button></a>
 <a href="<?php echo site_url('event/');?>"><button type="button">Prihajajoči dogodki</button></a>
 <a href="<?php echo site_url('event/old');?>"><button type="button">Pretekli dogodki</button></a>  

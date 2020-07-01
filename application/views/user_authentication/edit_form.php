@@ -14,7 +14,7 @@ if (isset($message_display)) {
 ?>
 <div id="main">
 	<div id="login">
-		<h2>Edit password</h2>
+		<h2>Spremeba gesla</h2>
 		<hr/>
 		<?php echo form_open('user_authentication/update_user'); ?>
 		<?php
@@ -26,10 +26,9 @@ if (isset($message_display)) {
 		echo "</div>";
 		?>
 		<input type="hidden" name="username" id="name" value="<?php echo $this->session->userdata['logged_in']['username'];?>"/><br /><br />
-		<label>Password :</label>
+		<label>Geslo: </label>
 		<input type="password" name="password" id="password" placeholder="**********"/><br/><br />
-		<input type="submit" value="Change password" name="submit"/><br />
-		<a href="<?php echo base_url() ?>index.php/user_authentication/show">To SignUp Click Here</a>
+		<input type="submit" value="Spremeni geslo" name="submit"/><br />
 		<?php echo form_close(); ?>
 	</div>
 </div>

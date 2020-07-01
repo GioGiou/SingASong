@@ -1,1 +1,1 @@
-<h3>New event was successfully added</h3>
+<h3>Uspešno dodan dogodkek</h3>

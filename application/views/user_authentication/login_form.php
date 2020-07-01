@@ -14,7 +14,7 @@ if (isset($message_display)) {
 ?>
 <div id="main">
 	<div id="login">
-		<h2>Signin Form</h2>
+		<h2>Prijava v sistem</h2>
 		<hr/>
 		<?php echo form_open('user_authentication/signin'); ?>
 		<?php
@@ -25,12 +25,12 @@ if (isset($message_display)) {
 		echo validation_errors();
 		echo "</div>";
 		?>
-		<label>UserName :</label>
+		<label>Ime: </label>
 		<input type="text" name="username" id="name" placeholder="username"/><br /><br />
-		<label>Password :</label>
+		<label>Geslo: </label>
 		<input type="password" name="password" id="password" placeholder="**********"/><br/><br />
-		<input type="submit" value=" Login " name="submit"/><br />
-		<a href="<?php echo base_url() ?>index.php/user_authentication/show">To SignUp Click Here</a>
+		<input type="submit" value=" Prijava " name="submit"/><br />
+		<a href="<?php echo base_url() ?>index.php/user_authentication/show">Registracija v sistem</a>
 		<?php echo form_close(); ?>
 	</div>
 </div>

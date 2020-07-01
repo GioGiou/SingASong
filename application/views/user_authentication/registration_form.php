@@ -1,6 +1,6 @@
 <div id="main">
 	<div id="login">
-		<h2>Registration Form</h2>
+		<h2>Registracija v sistem</h2>
 		<hr/>
 		<?php
 		echo "<div class='error_msg'>";
@@ -32,9 +32,9 @@
 		echo form_password('password');
 		echo"<br/>";
 		echo"<br/>";
-		echo form_submit('submit', 'Sign Up');
+		echo form_submit('submit', 'Registracija');
 		echo form_close();
 		?>
-		<a href="<?php echo site_url('user_authentication/signin') ?> ">For Login Click Here</a>
+		<a href="<?php echo site_url('user_authentication/signin') ?> ">Prijava v sistem</a>
 	</div>
 </div>

@@ -1,3 +1,4 @@
+
 <?php echo validation_errors(); ?>
 
 <?php echo form_open('event/create'); ?>
@@ -12,6 +13,6 @@
     <label for="text">Text</label>
     <textarea name="text"></textarea><br />
 
-    <input type="submit" name="submit" value="Add new event" />
+    <input type="submit" name="submit" value="Dodaj nov dogodek" />
 
 </form>

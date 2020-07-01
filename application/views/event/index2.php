@@ -7,7 +7,7 @@
 
 <?php endforeach; ?>
 <div>
-<p>Več:</p>
+Več:<br/>
 <a href="<?php echo site_url('event/all'); ?>"><button type="button">Vsi dogodki</button></a>
 <a href="<?php echo site_url('event/');?>"><button type="button">Prihajajoči dogodki</button></a>
 <a href="<?php echo site_url('event/old');?>"><button type="button">Pretekli dogodki</button></a>  
