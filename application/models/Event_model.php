@@ -12,7 +12,7 @@ class Event_model extends CI_Model{
 	}
 	public function get_event_date(){
 		$this->db->where('Datum >=', date("Y-m-d"));
-		$this->db->order_by('Datum', 'DESC');
+		$this->db->order_by('Datum', 'ASC');
 		$query = $this->db->get('Dogodek');
 		return $query->result_array();
 	}
