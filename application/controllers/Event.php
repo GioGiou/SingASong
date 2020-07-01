@@ -17,16 +17,18 @@ class Event extends CI_Controller {
 
 				$this->form_validation->set_rules('title', 'Title', 'required');
 				$this->form_validation->set_rules('text', 'Text', 'required');
+				$this->form_validation->set_rules('kraj', 'Kraj', 'required');
+				$this->form_validation->set_rules('datum', 'Datum', 'required');
 
 				$data['title'] = "Add new event";
 
 				if($this->form_validation->run() === FALSE){
-					$this->load->view('templates/header', $data);
+					$this->load->view('templates/header_urednik');
 					$this->load->view('event/create');
 					$this->load->view('templates/footer');
 				}else{
 					$this->event_model->set_event();
-					$this->load->view('templates/header', $data);
+					$this->load->view('templates/header_urednik');
 					$this->load->view('event/success');
 					$this->load->view('templates/footer');
 					
