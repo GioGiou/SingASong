@@ -59,7 +59,7 @@ public function read_user_information($username) {
 	}
 }
 public function delete_insert($data) {
-	$this -> db -> where('name', $data);
+	$this -> db -> where('Ime', $data);
     $this -> db -> delete('Uporabnik');
 }
 public function update_insert($data) {

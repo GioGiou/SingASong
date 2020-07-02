@@ -136,6 +136,10 @@ class User_authentication extends CI_Controller {
 	}
 	public function delete_user($data) {   
 		$this->login_database->delete_insert($data);
+		$sess_array = array(
+			'username' => ''
+		);
+		$this->session->unset_userdata('logged_in', $sess_array);
 		$this->load->view('templates/header');
 		$this->load->view('user_authentication/delete');
 		$this->load->view('templates/footer');
