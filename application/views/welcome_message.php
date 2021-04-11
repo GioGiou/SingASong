@@ -1,1 +1,1 @@
-<p>Če želite viteti vsebino se morate prijaviti v našo spletno stran.</p>
+<p>Spletna stran Trenutno ni na voljo.</p>

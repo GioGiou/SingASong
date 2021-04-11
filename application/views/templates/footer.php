@@ -1,3 +1,3 @@
-                <em>Izpitni projekt pri predmetu Sistemi 3, Jani Suban, 2020 </em>
+                <em>Izpitni projekt pri predmetu Menedzment informacijskih tehnologij, 2021</em>
         </body>
 </html>

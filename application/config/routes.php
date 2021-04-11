@@ -51,24 +51,5 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
 */
-$route['event/signup'] = 'event/signup';
-$route['event/login'] = 'event/login';
-$route['user_authentication/admin'] = 'user_authentication/admin';
-$route['user_authentication/update_user'] = 'user_authentication/update_user';
-$route['user_authentication'] = 'user_authentication/index';
-$route['user_authentication/show'] = 'user_authentication/show';
-$route['user_authentication/delete_user'] = 'user_authentication/delete_user/$1';
-$route['user_authentication/signup'] = 'user_authentication/signup';
-$route['user_authentication/signin'] = 'user_authentication/signin';
-$route['user_authentication/logout'] = 'user_authentication/logout';
-
-$route['event/create'] = 'event/create';
-$route['event/create'] = 'event/create';
-$route['event/alf'] = 'event/alf';
-$route['event/date'] = 'event/date';
-$route['event/old'] = 'event/old';
-$route['event/all'] = 'event/all';
-$route['event'] = 'event/index';
-$route['event/(:any)'] = 'event/view/$1';
 $route['(:any)'] = 'welcome/index';
 $route['default_controller'] = 'welcome/index';

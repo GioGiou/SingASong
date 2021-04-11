@@ -22,7 +22,7 @@ class Welcome extends CI_Controller {
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
 	public function index(){
-		$data['title']="Dobrodošli na naši spletni strani";
+		$data['title']="SingASong";
 		$this->load->view('templates/header', $data);
 		$this->load->view('welcome_message');
 		$this->load->view('templates/footer');
