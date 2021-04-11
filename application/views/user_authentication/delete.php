@@ -1,0 +1,1 @@
+<p>Uspešno ste  izbrisali uporabnika.</p>
