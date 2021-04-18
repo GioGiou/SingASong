@@ -51,5 +51,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
 */
+$route['user_authentication/signup'] = 'User_authentication/signup';
 $route['(:any)'] = 'welcome/index';
 $route['default_controller'] = 'welcome/index';
