@@ -3,11 +3,13 @@ class Login_database extends CI_Model{
 public function __construct(){
 	$this->load->database();
 }
+
+//note
 // Insert registration data in database
 public function registration_insert($data) {
 
 	// Query to check whether username already exist or not
-	$condition = "Ime =" . "'" . $data['Ime'] . "'";
+	$condition = "Email =" . "'" . $data['email'] . "'";
 	$this->db->select('*');
 	$this->db->from('Uporabnik');
 	$this->db->where($condition);

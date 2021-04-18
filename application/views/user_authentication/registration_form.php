@@ -1,40 +1,41 @@
 <div id="main">
-	<div id="login">
+	<?php //changed id from login ?>
+	<div id="signup">
 		<h2>Registracija v sistem</h2>
 		<hr/>
-		<?php
+
+	<?php 
+
+		if (isset($_SESSION['success'])){
+			?> <div><?php echo 'Success'; ?></div>  <?php
+		}
+
+	?>
+
+	<?php
 		echo "<div class='error_msg'>";
 			echo validation_errors();
 		echo "</div>";
-		echo form_open('user_authentication/signup');
+	?> 
+		<div id="formDiv">
+			<form method="POST">
+				<label for="username">Username</label><br>
+				<input type="text" id="username" name="username" placeholder="Placeholder"><br>
+				
+				<label for="password">Password</label><br>
+				<input type="password" id="password" name="password"><br>
+				
+				<label for="password2">Re-enter password</label><br>
+				<input type="password2" id="password" name="password2"><br>
+				
+				<label for="email">Enter your e-mail</label><br>
+				<input type="text" id="email" name="email" placeholder="Placeholder e-mail"><br>
 
-		echo form_label('Ime: ');
-		echo"<br/>";
-		echo form_input('username');
-		echo "<div class='error_msg'>";
-		
-		if (isset($message_display)) {
-			echo $message_display;
-		}
-		echo "</div>";
-		echo"<br/>";
-		echo form_label('Priimek: ');
-		echo"<br/>";
-		$data = array(
-		'type' => 'text',
-		'name' => 'email_value'
-		);
-		echo form_input($data);
-		echo"<br/>";
-		echo"<br/>";
-		echo form_label('Geslo: ');
-		echo"<br/>";
-		echo form_password('password');
-		echo"<br/>";
-		echo"<br/>";
-		echo form_submit('submit', 'Registracija');
-		echo form_close();
-		?>
-		<a href="<?php echo site_url('user_authentication/signin') ?> ">Prijava v sistem</a>
-	</div>
+				<label for="description">Enter your description</label><br>
+				<input type="text" id="description" name="description"><br>
+
+				<input type="submit" name="submit" value="Submit">
+			</form>
+		</div>
+		</div>
 </div>

@@ -3,13 +3,13 @@
 class User_authentication extends CI_Controller {
 	public function __construct() {
 		parent::__construct();
-
+/*
 		$this->load->helper('url_helper');
 		$this->load->helper('form');
 		$this->load->library('form_validation');
 		$this->load->library('session');
 		$this->load->model('login_database');
-		
+*/		
 	}
 
 	// Show login page
@@ -26,36 +26,35 @@ class User_authentication extends CI_Controller {
 		$this->load->view('templates/footer');
 	}
 
+	//note
 	// Validate and store registration data in database
 	public function signup() {
+		
+		if(isset($_POST['submit'])){
 
-		// Check validation for user input in SignUp form
-		$this->form_validation->set_rules('username', 'Username', 'trim|required');
-		$this->form_validation->set_rules('email_value', 'Email', 'trim|required');
-		$this->form_validation->set_rules('password', 'Password', 'trim|required');
+			$this->form_validation->set_rules('username', 'Username', 'trim|required');
+			$this->form_validation->set_rules('email', 'Email', 'trim|required');
+			$this->form_validation->set_rules('password', 'Password', 'trim|required|min_length[5]');
+			$this->form_validation->set_rules('password', 'Re-enter password', 'trim|required|min_length[5]|matches[password]');
 
-		if ($this->form_validation->run() == FALSE) {
-			$this->load->view('templates/header');
-				$this->load->view('user_authentication/registration_form');
-				$this->load->view('templates/footer');
-		} else {
-			$data = array(
-				'Ime' => $this->input->post('username'),
-				'Priimek' => $this->input->post('email_value'),
-				'Geslo' => $this->input->post('password')
-			);
-			$result = $this->login_database->registration_insert($data);
-			if ($result == TRUE) {
-				$data['message_display'] = 'Uspečno ste se registrirali. Če želite nadaljevati se morate prijaviti.';
-				$this->load->view('templates/header');
-				$this->load->view('user_authentication/login_form', $data);
-				$this->load->view('templates/footer');
-			} else {
-				$this->load->view('templates/header');
-				$this->load->view('user_authentication/registration_form');
-				$this->load->view('templates/footer');
+			if($this->form_validation->run() == true){
+				echo 'form validated';
+
+				//add user in db
+				$data = array(
+					'Ime' => $this->input->post('username'),
+					'Priimek' => $this->input->post('email'),
+					'Geslo' => $this->input->post('password'),
+					'Opis' => $this->input->post('description')
+				);
+				$this->db->insert('user',$data);
+
+				$this->session->set_flashdata("success", "Your account has been registered. You can login now.");
+				redirect("User_authentication/signin", "refresh");
+
 			}
 		}
+		$this->load->view('user_authentication/registration_form');
 	}
 
 	public function admin(){
