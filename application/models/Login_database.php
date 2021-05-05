@@ -30,9 +30,9 @@ public function registration_insert($data) {
 // Read data using username and password
 public function login($data) {
 
-	$condition = "Ime =" . "'" . $data['username'] . "' AND " . "Geslo =" . "'" . $data['password'] . "'";
+	$condition = "Email =" . "'" . $data['email'] . "' AND " . "Geslo =" . "'" . $data['password'] . "'";
 	$this->db->select('*');
-	$this->db->from('Uporabnik');
+	$this->db->from('Glasbenik');
 	$this->db->where($condition);
 	$this->db->limit(1);
 	$query = $this->db->get();

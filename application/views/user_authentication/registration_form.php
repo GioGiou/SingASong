@@ -26,7 +26,7 @@
 				<input type="password" id="password" name="password"><br>
 				
 				<label for="password2">Re-enter password</label><br>
-				<input type="password2" id="password" name="password2"><br>
+				<input type="password" id="password2" name="password2"><br>
 				
 				<label for="email">Enter your e-mail</label><br>
 				<input type="text" id="email" name="email" placeholder="Placeholder e-mail"><br>

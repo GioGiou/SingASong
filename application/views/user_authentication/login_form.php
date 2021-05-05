@@ -25,8 +25,8 @@ if (isset($message_display)) {
 		echo validation_errors();
 		echo "</div>";
 		?>
-		<label>Ime: </label>
-		<input type="text" name="username" id="name" placeholder="username"/><br /><br />
+		<label>E-mail: </label>
+		<input type="text" name="email" id="email" placeholder="email@organization.com"/><br /><br />
 		<label>Geslo: </label>
 		<input type="password" name="password" id="password" placeholder="**********"/><br/><br />
 		<input type="submit" value=" Prijava " name="submit"/><br />

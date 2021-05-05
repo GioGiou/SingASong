@@ -91,34 +91,25 @@ class User_authentication extends CI_Controller {
 	// Check for user login process
 	public function signin() {
 
-		$this->form_validation->set_rules('username', 'Username', 'trim|required');
+		$this->form_validation->set_rules('email', 'Email', 'trim|required');
 		$this->form_validation->set_rules('password', 'Password', 'trim|required');
 
 		$data = array(
-			'username' => $this->input->post('username'),
+			'email' => $this->input->post('email'),
 			'password' => $this->input->post('password')
 		);
 		$result = $this->login_database->login($data);
 		if ($result == TRUE) {
-
-			$username = $this->input->post('username');
-			$result = $this->login_database->read_user_information($username);
-			if ($result != false) {
-				$session_data = array(
-					'username' => $result[0]->Ime,
-					'email' => $result[0]->Priimek,
-					'urednik' => $result[0]->Id,
-				);
 				// Add user data in session
 				$data = array('error_message' => 'Vspešna prijava');
-				$this->session->set_userdata('logged_in', $session_data);
+				//$this->session->set_userdata('logged_in', $session_data);
 				$this->load->view('templates/header',$data);
 				$this->load->view('user_authentication/login_form',$data);
 				$this->load->view('templates/footer');
-			}
+			
 		} else {
 			$data = array(
-				'error_message' => 'Neveljavno ime ali geslo'
+				'error_message' => $data['email']
 			);
 			$this->load->view('templates/header');
 			$this->load->view('user_authentication/login_form', $data);

@@ -25,6 +25,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 $config['base_url'] = 'https://www.studenti.famnit.upr.si/~89181056/SingASong/';
 
+//$config['base_url'] = 'https://www.studenti.famnit.upr.si/~89161019/MIT/SingASong/';
 /*
 |--------------------------------------------------------------------------
 | Index File
