@@ -9,5 +9,9 @@ class Glasbenik_model extends CI_Model{
 		$query = $this->db->get_where('Glasbenik', array('Id'=> $slug));
 		return $query->row_array();
 	}
+	public function objave(){
+		$query = $this->db->get('Glasbenik');
+		return $query->result_array();
+	}
 
 }

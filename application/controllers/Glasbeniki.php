@@ -23,8 +23,8 @@ class Glasbeniki extends CI_Controller {
 
     public function index(){
 		
-		$data['news'] = $this->glasbenik_model->get_event();
-		$data['title'] = "Prihajajoči dogodki";
+		$data['news'] = $this->glasbenik_model-> objave();
+		$data['title'] = "Seznam glasbenikov";
 		$data['photo']='Temp.jpeg';
 
 		$this->load->view('templates/header', $data);
