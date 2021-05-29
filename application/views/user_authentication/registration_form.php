@@ -18,24 +18,33 @@
 		echo "</div>";
 	?> 
 		<div id="formDiv">
-			<form method="POST">
-				<label for="username">Username</label><br>
+
+			<form method="POST" enctype="multipart/form-data">
+				<label for="username">Ime</label><br>
 				<input type="text" id="username" name="username" placeholder="Placeholder"><br>
 				
-				<label for="password">Password</label><br>
+				<label for="password">Geslo</label><br>
 				<input type="password" id="password" name="password"><br>
 				
-				<label for="password2">Re-enter password</label><br>
+				<label for="password2">Ponovi geslo</label><br>
 				<input type="password" id="password2" name="password2"><br>
 				
-				<label for="email">Enter your e-mail</label><br>
+				<label for="email">Elektronska pošta</label><br>
 				<input type="text" id="email" name="email" placeholder="Placeholder e-mail"><br>
 
-				<label for="description">Enter your description</label><br>
+				<label for="description">Opis</label><br>
 				<input type="text" id="description" name="description"><br>
 
-				<input type="submit" name="submit" value="Submit">
+				<label for="cena">Cena</label><br>
+				<input type="text" id="cena" name="cena" placeholder="15,70€"><br>
+
+				<label for="kraj">Kraj in okolica</label><br>
+				<input type="text" id="kraj" name="kraj" placeholder="Ljubljana z okolico"><br>
+
+				<input type="submit" name="submit" value="Registracija">
 			</form>
+			<a href="<?php echo base_url() ?>index.php/user_authentication/signin">Prijava</a>
+			<?php echo form_close(); ?>
 		</div>
 		</div>
 </div>

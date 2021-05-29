@@ -33,7 +33,9 @@ class User_authentication extends CI_Controller {
 			$this->form_validation->set_rules('username', 'Username', 'trim|required');
 			$this->form_validation->set_rules('email', 'Email', 'trim|required');
 			$this->form_validation->set_rules('password', 'Password', 'trim|required|min_length[5]');
-			$this->form_validation->set_rules('password', 'Re-enter password', 'trim|required|min_length[5]|matches[password]');
+			$this->form_validation->set_rules('password2', 'Re-enter password', 'trim|required|min_length[5]|matches[password]');
+			$this->form_validation->set_rules('kraj', 'Kraj', 'trim');
+			$this->form_validation->set_rules('cena', 'Cena', 'trim');
 
 			if ($this->form_validation->run() == FALSE) {
 				$this->load->view('templates/header');
@@ -44,13 +46,21 @@ class User_authentication extends CI_Controller {
 					'Ime' => $this->input->post('username'),
 					'Email' => $this->input->post('email'),
 					'Geslo' => $this->input->post('password'),
-					'Opis' => $this->input->post('description')
+					'Opis' => $this->input->post('description'),
+					'Kraj' => $this->input->post('kraj'),
+					'Cena' => $this->input->post('cena'),
+					'Sika' => "Test.png",
+					'Tel' => '',
+					'FB' => '',
+					'Insta' => '',
+					'YT' => '',
+					'SC' => ''
 				);
 				$result = $this->login_database->registration_insert($data);
 				if ($result == TRUE) {
-					$data['message_display'] = 'Uspečno ste se registrirali. Če želite nadaljevati se morate prijaviti.';
+					$data['message_display'] = 'Uspešno ste se registrirali. Če želite nadaljevati se morate prijaviti.';
 					$this->load->view('templates/header');
-					//$this->load->view('user_authentication/login_form', $data);
+					$this->load->view('user_authentication/login_form', $data);
 					$this->load->view('templates/footer');
 				} else {
 					$this->load->view('templates/header');
@@ -101,11 +111,11 @@ class User_authentication extends CI_Controller {
 		$result = $this->login_database->login($data);
 		if ($result == TRUE) {
 				// Add user data in session
+				$query = $this->login_database->get_data_by_email($data['email']);
+				$this->session->set_userdata($query);
+				// $result dej v session
 				$data = array('error_message' => 'Vspešna prijava');
-				//$this->session->set_userdata('logged_in', $session_data);
-				$this->load->view('templates/header',$data);
-				$this->load->view('user_authentication/login_form',$data);
-				$this->load->view('templates/footer');
+				$this->load->view('user_authentication/admin_page');
 			
 		} else {
 			$data = array(
@@ -144,10 +154,25 @@ class User_authentication extends CI_Controller {
 		
 		$this->form_validation->set_rules('username', 'Username', 'trim|required');
 		$this->form_validation->set_rules('password', 'Password', 'trim|required');
+		$this->form_validation->set_rules('kraj', 'Kraj', 'trim');
+		$this->form_validation->set_rules('cena', 'Cena', 'trim');
+		$this->form_validation->set_rules('tel', 'Tel', 'trim');
+		$this->form_validation->set_rules('fb', 'FB', 'trim');
+		$this->form_validation->set_rules('yt', 'YT', 'trim');
+		$this->form_validation->set_rules('sc', 'SC', 'trim');
 
 		$data = array(
 			'username' => $this->input->post('username'),
-			'password' => $this->input->post('password')
+			'password' => $this->input->post('password'),
+			'Opis' => $this->input->post('description'),
+			'Kraj' => $this->input->post('kraj'),
+			'Cena' => $this->input->post('cena'),
+			'Sika' => $this->input->post('slika'),
+			'Tel' => $this->input->post('tel'),
+			'FB' => $this->input->post('fb'),
+			'Insta' => $this->input->post('insta'),
+			'YT' => $this->input->post('yt'),
+			'SC' => $this->input->post('sc')
 		); 
 		if($this->form_validation->run() === FALSE){
 			$this->load->view('templates/header');
@@ -157,14 +182,17 @@ class User_authentication extends CI_Controller {
 			$data = array(
 				'username' => $this->input->post('username'),
 				'password' => $this->input->post('password'),
-				'email' => $this->session->userdata['logged_in']['email'],
+				'email' => $this->session->userdata('Email'),
+				'kraj' => $this->input->post('kraj'),
+				'cena' => $this->input->post('cena'),
+				'slika' => $this->input->post('slika'),
+				'opis' => $this->input->post('opis'),
+				'tel' => $this->input->post('tel'),
+				'fb' => $this->input->post('fb'),
+				'insta' => $this->input->post('insta'),
+				'yt' => $this->input->post('yt'),
+				'sc' => $this->input->post('sc')
 			);
-			if($this->session->userdata['logged_in']['urednik']){
-				$data['admin'] = 'Urednik';
-			}
-			else{
-				$data['admin'] = 'User';
-			}
 			$this->login_database->update_insert($data);
 			
 			$this->load->view('templates/header');

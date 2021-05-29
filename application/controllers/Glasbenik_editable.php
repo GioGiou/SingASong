@@ -1,5 +1,5 @@
 <?php
-class Glasbeniki extends CI_Controller {
+class Glasbenik_editable extends CI_Controller {
 
 	public function __construct(){
 		parent::__construct();
@@ -17,7 +17,21 @@ class Glasbeniki extends CI_Controller {
         $this->load->view('templates/header', $data);
         $this->load->view('event/view', $data);
         $this->load->view('templates/footer', $data);
+        //dodano
+        $id = $data['news_item']['ID'];
+        ?>
+
+        	<div>
+        		<a href="<?php echo base_url() ?>index.php/glasbenik_editable/editable?id=<?php echo $id ?>">Edit</a>
+        	</div>
+
+        <?php
     
+	}
+
+	public function editable(){
+		$result = $this->glasbenik_model->get_event_where($_GET['id']);
+		$this->load->view('user_authentication/edit_form');
 	}
 
 

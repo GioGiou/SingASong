@@ -44,6 +44,20 @@ public function login($data) {
 	}
 }
 
+public function get_data_by_email($email){
+	$condition = "Email =" . "'" . $email . "'";
+	$this->db->select('*');
+	$this->db->from('Glasbenik');
+	$this->db->where($condition);
+	$query = $this->db->get();
+
+	if ($query->num_rows() == 1) {
+		return $query->row_array();
+	} else {
+		return false;
+	}
+}
+
 // Read data from database to show data in admin page
 public function read_user_information($username) {
 
@@ -65,9 +79,38 @@ public function delete_insert($data) {
     $this -> db -> delete('Uporabnik');
 }
 public function update_insert($data) {
-	$this -> db -> set('Geslo',$data['password']);
-	$this -> db -> where('Ime', $data['username']);
-    $this -> db -> update('Uporabnik');
+	if ($data['password'] != '') {
+		$this ->db-> set('Geslo',$data['password']);
+	}
+	if ($data['kraj'] != '') {
+		$this ->db-> set('Kraj',$data['kraj']);
+	}
+	if ($data['cena'] != '') {
+		$this ->db-> set('Cena',$data['cena']);
+	}
+	if ($data['slika'] != '') {
+		$this ->db-> set('Slika',$data['slika']);
+	}
+	if ($data['opis'] != '') {
+		$this->db->set('Opis',$data['opis']);
+	}
+	if ($data['tel'] != '') {
+		$this ->db-> set('Tel',$data['tel']);
+	}
+	if ($data['fb'] != '') {
+		$this ->db-> set('FB',$data['fb']);
+	}
+	if ($data['insta'] != '') {
+		$this ->db-> set('Insta',$data['insta']);
+	}
+	if ($data['yt'] != '') {
+		$this ->db-> set('YT',$data['yt']);
+	}
+	if ($data['sc'] != '') {
+		$this ->db-> set('SC',$data['sc']);
+	}
+	$this ->db-> where('Ime', $data['username']);
+    $this ->db-> update('Glasbenik');
 }
 
 
