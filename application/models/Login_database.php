@@ -78,36 +78,41 @@ public function delete_insert($data) {
 	$this -> db -> where('Ime', $data);
     $this -> db -> delete('Uporabnik');
 }
+
+public function insert_image($data){
+	$this ->db-> set('Slika',$data['Slika']);
+	$this ->db-> where('Ime', $data['username']);
+    $this ->db-> update('Glasbenik');
+}
+
+
 public function update_insert($data) {
-	if ($data['password'] != '') {
-		$this ->db-> set('Geslo',$data['password']);
+	if ($data['Geslo'] != '') {
+		$this ->db-> set('Geslo',$data['Geslo']);
 	}
-	if ($data['kraj'] != '') {
-		$this ->db-> set('Kraj',$data['kraj']);
+	if ($data['Kraj'] != '') {
+		$this ->db-> set('Kraj',$data['Kraj']);
 	}
-	if ($data['cena'] != '') {
-		$this ->db-> set('Cena',$data['cena']);
+	if ($data['Cena'] != '') {
+		$this ->db-> set('Cena',$data['Cena']);
 	}
-	if ($data['slika'] != '') {
-		$this ->db-> set('Slika',$data['slika']);
+	if ($data['Opis'] != '') {
+		$this->db->set('Opis',$data['Opis']);
 	}
-	if ($data['opis'] != '') {
-		$this->db->set('Opis',$data['opis']);
+	if ($data['Tel'] != '') {
+		$this ->db-> set('Tel',$data['Tel']);
 	}
-	if ($data['tel'] != '') {
-		$this ->db-> set('Tel',$data['tel']);
+	if ($data['FB'] != '') {
+		$this ->db-> set('FB',$data['FB']);
 	}
-	if ($data['fb'] != '') {
-		$this ->db-> set('FB',$data['fb']);
+	if ($data['Insta'] != '') {
+		$this ->db-> set('Insta',$data['Insta']);
 	}
-	if ($data['insta'] != '') {
-		$this ->db-> set('Insta',$data['insta']);
+	if ($data['YT'] != '') {
+		$this ->db-> set('YT',$data['YT']);
 	}
-	if ($data['yt'] != '') {
-		$this ->db-> set('YT',$data['yt']);
-	}
-	if ($data['sc'] != '') {
-		$this ->db-> set('SC',$data['sc']);
+	if ($data['SC'] != '') {
+		$this ->db-> set('SC',$data['SC']);
 	}
 	$this ->db-> where('Ime', $data['username']);
     $this ->db-> update('Glasbenik');

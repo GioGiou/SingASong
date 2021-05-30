@@ -1,6 +1,6 @@
-<div id="main">
+<div id="signup">
 	<?php //changed id from login ?>
-	<div id="signup">
+	<div id="formDiv">
 		<h2>Registracija v sistem</h2>
 		<hr/>
 
@@ -17,7 +17,7 @@
 			echo validation_errors();
 		echo "</div>";
 	?> 
-		<div id="formDiv">
+		<div id="alignLogin">
 
 			<form method="POST" enctype="multipart/form-data">
 				<label for="username">Ime</label><br>
@@ -41,7 +41,7 @@
 				<label for="kraj">Kraj in okolica</label><br>
 				<input type="text" id="kraj" name="kraj" placeholder="Ljubljana z okolico"><br>
 
-				<input type="submit" name="submit" value="Registracija">
+				<input type="submit" name="submit" value="Registracija" id="buttonPrijava">
 			</form>
 			<a href="<?php echo base_url() ?>index.php/user_authentication/signin">Prijava</a>
 			<?php echo form_close(); ?>

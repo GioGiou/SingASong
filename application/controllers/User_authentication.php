@@ -78,16 +78,11 @@ class User_authentication extends CI_Controller {
 			if(isset($this->session->userdata['logged_in'])){
 				$data['username'] = $this->session->userdata['logged_in']['username'];
 				$data['email'] = $this->session->userdata['logged_in']['email'];
-				if($this->session->userdata['logged_in']['urednik'] == 5){
-					$data['admin'] = 'urednik';
-					$this->load->view('templates/header_urednik');
-					$this->load->view('user_authentication/admin_page_urednik', $data);
-				}
-				else{
+				
 					$data['admin'] = 'uporabnik';
 					$this->load->view('templates/header');
 					$this->load->view('user_authentication/admin_page', $data);
-				}
+				
 
 				$this->load->view('templates/footer');
 			}else{
@@ -150,6 +145,35 @@ class User_authentication extends CI_Controller {
 		$this->load->view('user_authentication/delete');
 		$this->load->view('templates/footer');
 	}
+
+	public function do_upload(){
+        $config['upload_path']          = './assets/photos';
+        $config['allowed_types']        = 'gif|jpg|png|jpeg';
+
+        $this->load->library('upload', $config);
+
+        if ( ! $this->upload->do_upload('slika'))
+        {
+            $error = array('error' => $this->upload->display_errors());
+
+            foreach ($error as $errorx) {
+                    echo $errorx;
+            }
+
+            $this->load->view('templates/header');
+			$this->load->view('user_authentication/update_photo', $data);
+			$this->load->view('templates/footer');
+        }
+        else
+        {
+            $data = array('upload_data' => $this->upload->data());
+
+			$this->load->view('templates/header');
+			$this->load->view('user_authentication/admin_page', $data);
+			$this->load->view('templates/footer');
+        }
+}
+
 	public function update_user() {
 		
 		$this->form_validation->set_rules('username', 'Username', 'trim|required');
@@ -163,11 +187,10 @@ class User_authentication extends CI_Controller {
 
 		$data = array(
 			'username' => $this->input->post('username'),
-			'password' => $this->input->post('password'),
+			'Geslo' => $this->input->post('password'),
 			'Opis' => $this->input->post('description'),
 			'Kraj' => $this->input->post('kraj'),
 			'Cena' => $this->input->post('cena'),
-			'Sika' => $this->input->post('slika'),
 			'Tel' => $this->input->post('tel'),
 			'FB' => $this->input->post('fb'),
 			'Insta' => $this->input->post('insta'),
@@ -179,20 +202,7 @@ class User_authentication extends CI_Controller {
 			$this->load->view('user_authentication/edit_form', $data);
 			$this->load->view('templates/footer');	
 		}else{
-			$data = array(
-				'username' => $this->input->post('username'),
-				'password' => $this->input->post('password'),
-				'email' => $this->session->userdata('Email'),
-				'kraj' => $this->input->post('kraj'),
-				'cena' => $this->input->post('cena'),
-				'slika' => $this->input->post('slika'),
-				'opis' => $this->input->post('opis'),
-				'tel' => $this->input->post('tel'),
-				'fb' => $this->input->post('fb'),
-				'insta' => $this->input->post('insta'),
-				'yt' => $this->input->post('yt'),
-				'sc' => $this->input->post('sc')
-			);
+			
 			$this->login_database->update_insert($data);
 			
 			$this->load->view('templates/header');

@@ -12,6 +12,7 @@ if (isset($message_display)) {
 	echo "</div>";
 }
 ?>
+
 <div id="main">
 	<div id="login">
 		<h2>Prijava v sistem</h2>
@@ -24,12 +25,13 @@ if (isset($message_display)) {
 		}
 		echo validation_errors();
 		echo "</div>";
-		?>
-		<label>E-mail: </label>
-		<input type="text" name="email" id="email" placeholder="email@organization.com"/><br /><br />
-		<label>Geslo: </label>
-		<input type="password" name="password" id="password" placeholder="**********"/><br/><br />
-		<input type="submit" value=" Prijava " name="submit"/><br />
+		?> <div id="alignLogin">
+			<label>E-mail: </label>
+			<input type="text" name="email" id="email" placeholder="email@organization.com"/><br /><br />
+			<label>Geslo: </label>
+			<input type="password" name="password" id="password" placeholder="**********"/><br/><br />			
+		</div>
+		<input type="submit" value=" Prijava " name="submit" id="buttonPrijava" /><br />
 		<a href="<?php echo base_url() ?>index.php/user_authentication/show">Registracija v sistem</a>
 		<?php echo form_close(); ?>
 	</div>
