@@ -52,7 +52,7 @@ if (isset($message_display)) {
 				<input type="text" name="insta" id="insta" placeholder="TheBeatles"/><br/><br />
 				
 				<label for="yt">YouTube: </label>
-				<input type="text" name="yt" id="yt" placeholder="UCc4K7bAqpdBP8jh1j9XZAww"/><br/><br />
+				<input type="text" name="yt" id="yt" placeholder="https://www.youtube.com/channel/UCwiaPYufmQOq5F1TI-FzQhw"/><br/><br />
 				
 				<label for="sc">Sound Cloud: </label>
 				<input type="text" name="sc" id="sc" placeholder="TheBeatles"/><br/><br />

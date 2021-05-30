@@ -148,7 +148,7 @@ class User_authentication extends CI_Controller {
 
 	public function do_upload(){
         $config['upload_path']          = './assets/photos';
-        $config['allowed_types']        = 'gif|jpg|png|jpeg';
+        $config['allowed_types']        = 'jpg|png|jpeg';
 
         $this->load->library('upload', $config);
 
@@ -161,12 +161,15 @@ class User_authentication extends CI_Controller {
             }
 
             $this->load->view('templates/header');
-			$this->load->view('user_authentication/update_photo', $data);
+			$this->load->view('user_authentication/edit_photo', $error);
 			$this->load->view('templates/footer');
         }
         else
         {
-            $data = array('upload_data' => $this->upload->data());
+            $data = $this->session->userdata();
+            $data['Slika'] = $this->upload->data('file_name');
+
+            $this->login_database->insert_image($data);
 
 			$this->load->view('templates/header');
 			$this->load->view('user_authentication/admin_page', $data);

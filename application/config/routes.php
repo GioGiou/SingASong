@@ -56,6 +56,7 @@ $route['glasbenik/(:any)'] = 'glasbeniki/view/$1';
 $route['assets/(:any)'] = 'assets/$1';
 $route['user_authentication/admin_page'] = 'User_authentication/admin_page';
 $route['user_authentication/edit_form'] = 'User_authentication/edit_form';
+$route['user_authentication/edit_photo'] = 'User_authentication/edit_photo';
 $route['user_authentication/login_form'] = 'User_authentication/index';
 $route['user_authentication/signup'] = 'User_authentication/signup';
 $route['(:any)'] = 'welcome/index';

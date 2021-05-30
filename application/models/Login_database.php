@@ -81,7 +81,7 @@ public function delete_insert($data) {
 
 public function insert_image($data){
 	$this ->db-> set('Slika',$data['Slika']);
-	$this ->db-> where('Ime', $data['username']);
+	$this ->db-> where('Ime', $data['Ime']);
     $this ->db-> update('Glasbenik');
 }
 
