@@ -20,8 +20,9 @@
                 transform: translateY(-50%) translateX(-50%);
         }
 </style>
+<div class="zapakiraj">
 <?php foreach ($news as $news_item): ?>
-	<div class="zapakiraj">
+	
 		<div class="item">
         <?php
                if(isset($news_item['Slika'])){
@@ -42,6 +43,6 @@
 			<p><a href="<?php echo site_url('glasbenik/'.$news_item['ID']); ?>">Preberi več</a></p>
 		</span>
         </div>
-	</div>
+	
 <?php endforeach; ?>
-<div>
+</div>
