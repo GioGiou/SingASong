@@ -21,5 +21,16 @@ class Glasbenik_model extends CI_Model{
 		$query = $this->db->get();
 		return $query->result_array();
 	}
+	public function cena(){
+		$this->db->order_by('Cena',"asc");
+		$query = $this->db->get('Glasbenik');
+		return $query->result_array();
+	}
+
+	public function kraj(){
+		$this->db->order_by('Kraj');
+		$query = $this->db->get('Glasbenik');
+		return $query->result_array();
+	}
 
 }

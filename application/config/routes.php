@@ -52,6 +52,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 */
 $route['glasbenik'] = 'glasbeniki/index';
+$route['glasbenik/razvrscanje/(:any)'] = 'glasbeniki/razvrscanje/$1';
 $route['glasbenik/(:any)'] = 'glasbeniki/view/$1';
 $route['assets/(:any)'] = 'assets/$1';
 $route['user_authentication/admin_page'] = 'User_authentication/admin_page';

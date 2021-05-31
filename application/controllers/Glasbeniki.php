@@ -22,7 +22,7 @@ class Glasbeniki extends CI_Controller {
 
 
     public function index(){
-		$search= $this->input->post('search');
+		$search= $this->input->get('search');
 		if(isset($search)||$search==''){
 			$data['news'] = $this->glasbenik_model-> objave_iskanje($search);
 			$data['title'] = "Seznam glasbenikov";
@@ -41,6 +41,24 @@ class Glasbeniki extends CI_Controller {
 			$this->load->view('event/index', $data);
 			$this->load->view('templates/footer', $data);
 		}
+	}
+	public function razvrscanje($slug){
+			if($slug=='kraj'){
+				$data['news'] = $this->glasbenik_model-> kraj();
+			}
+			elseif ($slug=='cena') {
+				$data['news'] = $this->glasbenik_model-> cena();
+			}
+			else{
+				$data['news'] = $this->glasbenik_model-> objave();
+			}
+			$data['title'] = "Seznam glasbenikov";
+			$data['photo']='Temp.jpeg';
+
+			$this->load->view('templates/header', $data);
+			$this->load->view('event/index', $data);
+			$this->load->view('templates/footer', $data);
+		
 	}
 	
 }

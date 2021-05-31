@@ -19,8 +19,21 @@
                 left: 50%;
                 transform: translateY(-50%) translateX(-50%);
         }
+        .iskanje{
+                text-align: center;
+        }
 </style>
 <div class="zapakiraj">
+        <div class="iskanje">
+                <form>
+                        <input type="text" name="search" placeholder="Išči me skupine ali posameznika">
+                        <input type="submit" value="&#128269" id="buttonPrijava" >
+                </form>
+        </div><br/>
+        <div class="iskanje">
+                <a href="<?php echo site_url('glasbenik/razvrscanje/cena'); ?>"><button id="buttonPrijava" >Cena</button></a>
+                <a href="<?php echo site_url('glasbenik/razvrscanje/kraj'); ?>"><button id="buttonPrijava" >Kraj</button></a>
+        </div><br/>
 <?php foreach ($news as $news_item): ?>
 	
 		<div class="item">
