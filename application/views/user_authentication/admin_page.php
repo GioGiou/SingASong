@@ -1,4 +1,4 @@
-<div id="profile">
+<div class="group">
 
 	<?php
 	echo "Dobrodošli <b id='welcome'>" .$this->session->userdata('Ime'). "!</b>";
