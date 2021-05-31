@@ -32,7 +32,7 @@ if (isset($message_display)) {
 			<input type="password" name="password" id="password" placeholder="**********"/><br/><br />			
 		</div>
 		<input type="submit" value=" Prijava " name="submit" id="buttonPrijava" /><br />
-		<a href="<?php echo base_url() ?>index.php/user_authentication/show">Registracija v sistem</a>
+		<a id="buttonPrijava" href="<?php echo base_url() ?>index.php/user_authentication/show">Registracija v sistem</a>
 		<?php echo form_close(); ?>
 	</div>
 </div>
