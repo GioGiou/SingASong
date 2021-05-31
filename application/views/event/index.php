@@ -37,7 +37,7 @@
                         echo "<img src=\"" . asset_url() .  "photos/Temp.jpeg\" , class='slikca'>  ";
                 }        
         ?>
-		<span class="caption">Text below the image
+		<span class="caption">
 			<h3><?php echo $news_item['Ime']; ?></h3>
 			<p><?php echo $news_item['Kraj']; ?>, <?php echo $news_item['Cena']; ?>€</p>
 			<p><a href="<?php echo site_url('glasbenik/'.$news_item['ID']); ?>">Preberi več</a></p>
