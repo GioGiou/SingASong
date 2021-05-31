@@ -43,7 +43,7 @@
 
 				<input type="submit" name="submit" value="Registracija" id="buttonPrijava">
 			</form>
-			<a href="<?php echo base_url() ?>index.php/user_authentication/signin">Prijava</a>
+			<a id="buttonPrijava" href="<?php echo base_url() ?>index.php/user_authentication/signin">Prijava</a>
 			<?php echo form_close(); ?>
 		</div>
 		</div>
