@@ -17,6 +17,7 @@
   background-color: #202731;
   color: white;
   text-align: center;
+	    font-size: 8;
 }
 #login{
   position: fixed;
@@ -66,7 +67,8 @@ h2{
   text-align: center;
 }
 body{
-  background-color:gray
+  	background-color:gray;
+	font-size: 35;
   }
   .group{
      position: fixed;
