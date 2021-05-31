@@ -115,9 +115,6 @@ class User_authentication extends CI_Controller {
 				$this->load->view('templates/footer');
 			
 		} else {
-			$data = array(
-				'error_message' => $data['email']
-			);
 			$this->load->view('templates/header');
 			$this->load->view('user_authentication/login_form', $data);
 			$this->load->view('templates/footer');

@@ -5,7 +5,7 @@ class Glasbeniki extends CI_Controller {
 		parent::__construct();
 		$this->load->model('glasbenik_model');
 		$this->load->helper('url_helper');
-		//$this->load->library('session');
+		$this->load->helper('form');
 		$this->load->helper('file');
 	}
 
@@ -22,15 +22,25 @@ class Glasbeniki extends CI_Controller {
 
 
     public function index(){
-		
-		$data['news'] = $this->glasbenik_model-> objave();
-		$data['title'] = "Seznam glasbenikov";
-		$data['photo']='Temp.jpeg';
+		$search= $this->input->post('search');
+		if(isset($search)||$search==''){
+			$data['news'] = $this->glasbenik_model-> objave_iskanje($search);
+			$data['title'] = "Seznam glasbenikov";
+			$data['photo']='Temp.jpeg';
 
-		$this->load->view('templates/header', $data);
-        $this->load->view('event/index', $data);
-        $this->load->view('templates/footer', $data);
-		
+			$this->load->view('templates/header', $data);
+			$this->load->view('event/index', $data);
+			$this->load->view('templates/footer', $data);
+		}
+		else{
+			$data['news'] = $this->glasbenik_model-> objave();
+			$data['title'] = "Seznam glasbenikov";
+			$data['photo']='Temp.jpeg';
+
+			$this->load->view('templates/header', $data);
+			$this->load->view('event/index', $data);
+			$this->load->view('templates/footer', $data);
+		}
 	}
 	
 }
