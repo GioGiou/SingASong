@@ -110,7 +110,9 @@ class User_authentication extends CI_Controller {
 				$this->session->set_userdata($query);
 				// $result dej v session
 				$data = array('error_message' => 'Vspešna prijava');
+				$this->load->view('templates/header');
 				$this->load->view('user_authentication/admin_page');
+				$this->load->view('templates/footer');
 			
 		} else {
 			$data = array(
