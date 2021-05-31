@@ -49,7 +49,7 @@ class User_authentication extends CI_Controller {
 					'Opis' => $this->input->post('description'),
 					'Kraj' => $this->input->post('kraj'),
 					'Cena' => $this->input->post('cena'),
-					'Sika' => "Test.png",
+					'Slika' => '',
 					'Tel' => '',
 					'FB' => '',
 					'Insta' => '',
